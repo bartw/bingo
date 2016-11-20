@@ -115,3 +115,59 @@ If we change our test to expect 2 or if we change the return value of the genera
 ```shell
 npm test
 ```
+
+## Watching tests
+
+Create a config script for watching tests.
+
+```shell
+New-Item karma.watch.config.js
+```
+
+In karma.watch.config.js we use our normal config and override some values.
+
+```js
+var baseConfig = require('./karma.config.js');
+
+module.exports = function(config) {
+    baseConfig(config);
+    config.set({
+        singleRun: false,
+        autoWatch: true,
+        autoWatchBatchDelay: 300
+    });
+};
+```
+
+In package.json we add a script to run our tests.
+
+```json
+"watch": "karma start karma.watch.config.js"
+```
+
+Now we can watch our tests.
+
+```shell
+npm run watch
+```
+
+## Linting
+
+Execute these commands.
+
+```shell
+npm install eslint --save-dev
+./node_modules/.bin/eslint --init
+```
+
+In package.json we add a script to lint.
+
+```json
+"lint": "eslint . --ext .js --ignore-path .gitignore --cache"
+```
+
+Now we can lint using the follwing command.
+
+```shell
+npm run lint
+```

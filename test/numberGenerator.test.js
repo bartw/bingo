@@ -64,11 +64,11 @@ describe('numberGenerator', function() {
         });
 
         it('given a numberGenerator when generate without parameter then an error is thrown', function() {
-                expect(numberGenerator.generate).to.throw(Error, 'no prefix provided');
+            expect(numberGenerator.generate).to.throw(Error, 'no prefix provided');
         });
 
         it('given a numberGenerator when generate for a character not from BINGO then an error is thrown', function() {
-                expect(function() { numberGenerator.generate('e'); }).to.throw(Error, 'invalid prefix');
+            expect(function() { numberGenerator.generate('e'); }).to.throw(Error, 'invalid prefix');
         });
 
         it('given a numberGenerator and a list of excludes when generate then the excludes are not returned again', function() {
