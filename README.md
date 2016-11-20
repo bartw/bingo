@@ -171,3 +171,12 @@ Now we can lint using the follwing command.
 ```shell
 npm run lint
 ```
+
+## Web app
+
+npm install less less-loader css-loader style-loader extract-text-webpack-plugin file-loader webpack-dev-server --save-dev
+
+"build": "webpack",
+"build:watch": "webpack-dev-server --progress -d --colors"
+
+webpack.config.js
