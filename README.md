@@ -2,6 +2,14 @@
 
 ## Quickstart
 
+Open powershell and type following commands.
+
+```shell
+git clone https://github.com/bartw/bingo.git
+cd bingo
+npm test
+```
+
 ## Get going
 
 Open powershell and type following commands.
