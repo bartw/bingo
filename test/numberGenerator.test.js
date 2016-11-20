@@ -70,5 +70,13 @@ describe('numberGenerator', function() {
         it('given a numberGenerator when generate for a character not from BINGO then an error is thrown', function() {
                 expect(function() { numberGenerator.generate('e'); }).to.throw(Error, 'invalid prefix');
         });
+
+        it('given a numberGenerator and a list of excludes when generate then the excludes are not returned again', function() {
+            var excludes = ['B01', 'B62', 'O01', 'O65', 'O70'];
+            for (var i = 0; i < 300; i++) {
+                var result = numberGenerator.generate('O', excludes);
+                expect(result).not.to.be.oneOf(excludes);
+            }
+        });
     });
 });
