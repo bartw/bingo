@@ -12,7 +12,7 @@
     "watch": "karma start karma.watch.config.js",
     "lint": "eslint . --ext .js --ignore-path .gitignore --cache",
     "build": "webpack",
-    "build:watch": "webpack-dev-server --progress -d --colors"
+    "build:watch": "webpack-dev-server --progress -d --colors --port 7418"
   },
   "author": "",
   "license": "ISC",

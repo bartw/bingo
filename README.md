@@ -2,13 +2,16 @@
 
 ## Quickstart
 
-Open powershell and type following commands.
+Open a shell and type following commands.
 
 ```shell
 git clone https://github.com/bartw/bingo.git
 cd bingo
-npm test
+npm install
+npm run build:watch
 ```
+
+Open a browser and surf to http://localhost:7418/webpack-dev-server/.
 
 ## Get going
 
