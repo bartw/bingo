@@ -8,6 +8,17 @@ Open a shell and type following commands.
 git clone https://github.com/bartw/bingo.git
 cd bingo
 npm install
+```
+
+To run in electron
+
+```shell
+npm run electron
+```
+
+To run as a website
+
+```shell
 npm run build:watch
 ```
 
