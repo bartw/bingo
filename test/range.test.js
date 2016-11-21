@@ -85,12 +85,39 @@ describe('range', function() {
         });
 
         it('given a range of length n when calling nextNumber n + 1 times then an error is thrown', function() {
-            var numbers = [];
             for(var i = 0; i < allRangeValues.length; i++) {
-                numbers.push(range.nextNumber());
+                range.nextNumber();
             }
 
             expect(range.nextNumber).to.throw(Error, 'all numbers are generated');
+        });
+    });
+
+    describe('areNumbersAvailable', function() {
+        var prefix = 'A';
+        var allRangeValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        var range;
+        
+        beforeEach(function() {
+            range = new Range(prefix, allRangeValues[0], allRangeValues[allRangeValues.length - 1]);
+        });
+
+        it('given a range when no numbers are generated then areNumbersAvailable returns true', function() {
+            expect(range.areNumbersAvailable()).to.equal(true);
+        });
+
+        it('given a range when some but not all numbers are generated then areNumbersAvailable returns true', function() {
+            for(var i = 0; i < allRangeValues.length - 1; i++) {
+                range.nextNumber();
+            }
+            expect(range.areNumbersAvailable()).to.equal(true);
+        });
+
+        it('given a range when all numbers are generated then areNumbersAvailable returns false', function() {
+            for(var i = 0; i < allRangeValues.length; i++) {
+                range.nextNumber();
+            }
+            expect(range.areNumbersAvailable()).to.equal(false);
         });
     });
 });

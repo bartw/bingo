@@ -33,8 +33,7 @@
             writable: false
         });
         
-        var remainingNumbers = generateNumbers(self.from, self.to);
-        var generatedNumbers = [];
+        var remainingNumbers = initRemainingNumbers(self.from, self.to);
 
         var RandomNumberGenerator = require('./randomNumberGenerator.js');
         var randomNumberGenerator = new RandomNumberGenerator();
@@ -43,24 +42,29 @@
             if (remainingNumbers.length === 0) {
                 throw new Error('all numbers are generated');
             }
-            var index;
-            if (remainingNumbers.length === 1) {
-                index = 0;
-                
-            } else {
-                index = randomNumberGenerator.generate(0, remainingNumbers.length-1);
-            }
+            var index = getRandomIndex(randomNumberGenerator, remainingNumbers);
             var nextNumber = remainingNumbers.splice(index, 1)[0];
-            generatedNumbers.push(nextNumber);
             return self.prefix + nextNumber;
         };
 
-        function generateNumbers(from, to) {
+        self.areNumbersAvailable = function areNumbersAvailable() {
+            return remainingNumbers.length > 0;
+        };
+
+        function initRemainingNumbers(from, to) {
             var numbers = [];
             for (var i = from; i <= to; i++) {
                 numbers.push(i);
             }
             return numbers;
+        }
+
+        function getRandomIndex(randomNumberGenerator, list) {
+            if (list.length === 1) {
+                return 0;
+            } else {
+                return randomNumberGenerator.generate(0, list.length-1);
+            }
         }
     }
 

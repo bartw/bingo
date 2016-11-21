@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "karma start karma.config.js",
-    "watch": "karma start karma.watch.config.js",
+    "test:watch": "karma start karma.watch.config.js",
     "lint": "eslint . --ext .js --ignore-path .gitignore --cache",
     "build": "webpack",
     "build:watch": "webpack-dev-server --progress -d --colors --port 7418"
