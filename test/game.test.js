@@ -16,8 +16,8 @@ describe('game', function() {
         it('given a game when calling nextNumber then a number from a range should be returned', function() {
             var number = game.nextNumber();
 
-            expect(number[0]).to.be.oneOf(allRangePrefixes);
-            expect(parseInt(number.substring(1))).to.be.within(min, max);
+            expect(number.prefix).to.be.oneOf(allRangePrefixes);
+            expect(number.value).to.be.within(min, max);
         });
 
         it('given a game of length n when calling nextNumber n times then each number from the game with prefix should be returned', function() {
@@ -28,8 +28,8 @@ describe('game', function() {
 
             expect(numbers.length).to.equal(max);
             numbers.forEach(function(number) {
-                expect(number[0]).to.be.oneOf(allRangePrefixes);
-                expect(parseInt(number.substring(1))).to.be.within(min, max);
+                expect(number.prefix).to.be.oneOf(allRangePrefixes);
+                expect(number.value).to.be.within(min, max);
             });
         });
 

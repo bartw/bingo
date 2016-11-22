@@ -44,7 +44,7 @@
             }
             var index = getRandomIndex(randomNumberGenerator, remainingNumbers);
             var nextNumber = remainingNumbers.splice(index, 1)[0];
-            return self.prefix + nextNumber;
+            return { prefix: self.prefix, value: nextNumber };
         };
 
         self.areNumbersAvailable = function areNumbersAvailable() {

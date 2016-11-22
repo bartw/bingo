@@ -20,7 +20,7 @@
 
             if (game.areNumbersAvailable()) {
                 var nextNumber = game.nextNumber();
-                generatedNumber.textContent = nextNumber;
+                generatedNumber.textContent = nextNumber.prefix + nextNumber.value;
             } else {
                 generatedNumber.textContent = allNumbersAreGenerated;
             }
@@ -28,6 +28,7 @@
 
         newGame.addEventListener('click', function() {
             game = new Game();
+            generatedNumber.textContent = '';
             while (generatedNumbers.firstChild) {
                 generatedNumbers.removeChild(generatedNumbers.firstChild);
             }

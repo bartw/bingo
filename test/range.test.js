@@ -68,8 +68,8 @@ describe('range', function() {
         it('given a range when calling nextNumber then a number from the range with prefix should be returned', function() {
             var number = range.nextNumber();
 
-            expect(number[0]).to.equal(prefix);
-            expect(parseInt(number.substring(1))).to.be.oneOf(allRangeValues);
+            expect(number.prefix).to.equal(prefix);
+            expect(number.value).to.be.oneOf(allRangeValues);
         });
 
         it('given a range of length n when calling nextNumber n times then each number from the range with prefix should be returned', function() {
@@ -80,7 +80,8 @@ describe('range', function() {
 
             expect(numbers.length).to.equal(allRangeValues.length);
             numbers.forEach(function(number) {
-                expect(parseInt(number.substring(1))).to.be.oneOf(allRangeValues);
+                expect(number.prefix).to.equal(prefix);
+                expect(number.value).to.be.oneOf(allRangeValues);
             });
         });
 
