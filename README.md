@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bartw/bingo.svg?branch=master)](https://travis-ci.org/bartw/bingo)
+
 # Bingo
 
 ## Quickstart
