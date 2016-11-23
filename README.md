@@ -188,9 +188,13 @@ npm run lint
 
 ## Web app
 
+```shell
 npm install less less-loader css-loader style-loader extract-text-webpack-plugin file-loader webpack-dev-server --save-dev
+```
 
+```json
 "build": "webpack",
 "build:watch": "webpack-dev-server --progress -d --colors"
+```
 
 webpack.config.js
