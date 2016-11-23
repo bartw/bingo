@@ -56,7 +56,7 @@ describe('range', function() {
         });
     });
 
-    describe('nextNumber', function() {
+    describe('nextCombination', function() {
         var prefix = 'A';
         var allRangeValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         var range;
@@ -65,17 +65,17 @@ describe('range', function() {
             range = new Range(prefix, allRangeValues[0], allRangeValues[allRangeValues.length - 1]);
         });
 
-        it('given a range when calling nextNumber then a number from the range with prefix should be returned', function() {
-            var number = range.nextNumber();
+        it('given a range when calling nextCombination then a number from the range with prefix should be returned', function() {
+            var number = range.nextCombination();
 
             expect(number.prefix).to.equal(prefix);
             expect(number.value).to.be.oneOf(allRangeValues);
         });
 
-        it('given a range of length n when calling nextNumber n times then each number from the range with prefix should be returned', function() {
+        it('given a range of length n when calling nextCombination n times then each number from the range with prefix should be returned', function() {
             var numbers = [];
             for(var i = 0; i < allRangeValues.length; i++) {
-                numbers.push(range.nextNumber());
+                numbers.push(range.nextCombination());
             }
 
             expect(numbers.length).to.equal(allRangeValues.length);
@@ -85,12 +85,12 @@ describe('range', function() {
             });
         });
 
-        it('given a range of length n when calling nextNumber n + 1 times then an error is thrown', function() {
+        it('given a range of length n when calling nextCombination n + 1 times then an error is thrown', function() {
             for(var i = 0; i < allRangeValues.length; i++) {
-                range.nextNumber();
+                range.nextCombination();
             }
 
-            expect(range.nextNumber).to.throw(Error, 'all numbers are generated');
+            expect(range.nextCombination).to.throw(Error, 'All numbers are generated');
         });
     });
 
@@ -109,14 +109,14 @@ describe('range', function() {
 
         it('given a range when some but not all numbers are generated then areNumbersAvailable returns true', function() {
             for(var i = 0; i < allRangeValues.length - 1; i++) {
-                range.nextNumber();
+                range.nextCombination();
             }
             expect(range.areNumbersAvailable()).to.equal(true);
         });
 
         it('given a range when all numbers are generated then areNumbersAvailable returns false', function() {
             for(var i = 0; i < allRangeValues.length; i++) {
-                range.nextNumber();
+                range.nextCombination();
             }
             expect(range.areNumbersAvailable()).to.equal(false);
         });

@@ -5,32 +5,32 @@
         var Game = require('./game.js');
         var game = new Game();
 
-        var generatedNumbers = document.getElementById('generated-numbers');
-        var generatedNumber = document.getElementById('generated-number');
-        var nextNumber = document.getElementById('next-number');
+        var generatedCombinationsList = document.getElementById('generated-combinations');
+        var generatedCombinationLabel = document.getElementById('generated-combination');
+        var nextCombinationButton = document.getElementById('next-combination');
         var newGame = document.getElementById('new-game');
-        var allNumbersAreGenerated = 'All numbers are generated';
+        var allCombinationsAreGenerated = 'All combinations are generated';
 
-        nextNumber.addEventListener('click', function() {
-            if (generatedNumber.textContent && generatedNumber.textContent !== allNumbersAreGenerated) {
+        nextCombinationButton.addEventListener('click', function() {
+            if (generatedCombinationLabel.textContent && generatedCombinationLabel.textContent !== allCombinationsAreGenerated) {
                 var nextNumberListItem = document.createElement('li');
-                nextNumberListItem.textContent = generatedNumber.textContent;
-                generatedNumbers.appendChild(nextNumberListItem);
+                nextNumberListItem.textContent = generatedCombinationLabel.textContent;
+                generatedCombinationsList.appendChild(nextNumberListItem);
             }
 
-            if (game.areNumbersAvailable()) {
-                var nextNumber = game.nextNumber();
-                generatedNumber.textContent = nextNumber.prefix + nextNumber.value;
+            if (game.areCombinationsAvailable()) {
+                var nextCombination = game.nextCombination();
+                generatedCombinationLabel.textContent = nextCombination.prefix + nextCombination.value;
             } else {
-                generatedNumber.textContent = allNumbersAreGenerated;
+                generatedCombinationLabel.textContent = allCombinationsAreGenerated;
             }
         });
 
         newGame.addEventListener('click', function() {
             game = new Game();
-            generatedNumber.textContent = '';
-            while (generatedNumbers.firstChild) {
-                generatedNumbers.removeChild(generatedNumbers.firstChild);
+            generatedCombinationLabel.textContent = '';
+            while (generatedCombinationsList.firstChild) {
+                generatedCombinationsList.removeChild(generatedCombinationsList.firstChild);
             }
         });
     });

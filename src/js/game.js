@@ -9,18 +9,17 @@
         var State = require('./state.js');
         var state = new State();
 
-        self.nextNumber = function() {
+        self.nextCombination = function() {
             var availableRanges = getAvailableRanges(state.ranges);
             if (availableRanges.length === 0) {
-                throw new Error('all numbers are generated');
+                throw new Error('All combinations are generated');
             } 
             var index = getRandomIndex(randomNumberGenerator, availableRanges);
-            var nextNumber = availableRanges[index].nextNumber();
-            state.generatedNumbers.push(nextNumber);
-            return nextNumber;
+            var nextCombination = availableRanges[index].nextCombination();            
+            return nextCombination;
         };
 
-        self.areNumbersAvailable = function areNumbersAvailable() {
+        self.areCombinationsAvailable = function areCombinationsAvailable() {
             for (var i = 0; i < state.ranges.length; i++) {
                 if (state.ranges[i].areNumbersAvailable()) {
                     return true;

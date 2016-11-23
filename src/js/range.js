@@ -38,9 +38,9 @@
         var RandomNumberGenerator = require('./randomNumberGenerator.js');
         var randomNumberGenerator = new RandomNumberGenerator();
 
-        self.nextNumber = function nextNumber() {
+        self.nextCombination = function nextCombination() {
             if (remainingNumbers.length === 0) {
-                throw new Error('all numbers are generated');
+                throw new Error('All numbers are generated');
             }
             var index = getRandomIndex(randomNumberGenerator, remainingNumbers);
             var nextNumber = remainingNumbers.splice(index, 1)[0];
