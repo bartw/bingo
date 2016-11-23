@@ -26,6 +26,10 @@ npm run build:watch
 
 Open a browser and surf to http://localhost:7418/webpack-dev-server/.
 
+## Heroku
+
+https://bingoworld.herokuapp.com/
+
 ## Get going
 
 Open powershell and type following commands.
