@@ -2,7 +2,8 @@
     'use strict';
 
     function State() {
-        var self = this;
+        var self = this;        
+        self.generatedCombinationAddedEventHandlers = [];
 
         var Range = require('./range.js');
 
@@ -22,10 +23,24 @@
             new Range('O', 61, 75)
         ];
         
-        self.addGeneratedCombination = function(prefix, value){
+        self.addGeneratedCombination = function(prefix, value){            
             //TODO: Do some testing to make sure prefix, number is within range and tr
-            self.alreadyGeneratedCombinations[prefix].push(value);       
+            self.alreadyGeneratedCombinations[prefix].push(value);    
+            self.handleGeneratedCombinationAdded(prefix, value);                         
         };        
+
+
+        self.addGeneratedCombinationAddedEventHandler = function(eventHandler){
+            self.generatedCombinationAddedEventHandlers.push(eventHandler);
+        };
+
+        self.handleGeneratedCombinationAdded = function(prefix, value){
+            if(self.generatedCombinationAddedEventHandlers.length > 0 ){
+                self.generatedCombinationAddedEventHandlers.forEach(function(element) {
+                    element(prefix, value);
+                }, this);                
+            }
+        };
     }
 
     module.exports = State;

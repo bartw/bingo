@@ -1,7 +1,7 @@
 module.exports = function (config) {
     config.set({
         basePath: '',
-        frameworks: ['mocha', 'chai'],
+        frameworks: ['mocha', 'chai-spies', 'chai'],
         reporters: ['progress'],
         port: 9876,
         colors: true,
@@ -14,7 +14,8 @@ module.exports = function (config) {
         plugins: [
             require('karma-webpack'),
             require('karma-mocha'),
-            require('karma-chai'),
+            require('karma-chai'),           
+            require('karma-chai-spies'),
             require('karma-phantomjs-launcher')
         ],
         autoWatch: false,

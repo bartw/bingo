@@ -13,9 +13,9 @@
 
         nextCombinationButton.addEventListener('click', function() {
             if (generatedCombinationLabel.textContent && generatedCombinationLabel.textContent !== allCombinationsAreGenerated) {
-                var nextNumberListItem = document.createElement('li');
-                nextNumberListItem.textContent = generatedCombinationLabel.textContent;
-                generatedCombinationsList.appendChild(nextNumberListItem);
+                var nextCombinationListItem = document.createElement('li');
+                nextCombinationListItem.textContent = generatedCombinationLabel.textContent;
+                generatedCombinationsList.appendChild(nextCombinationListItem);
             }
 
             if (game.areCombinationsAvailable()) {
